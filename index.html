@@ -1,720 +1,611 @@
 <!doctype html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>Chat Origin</title>
-        <meta name="description" content="" />
-        <link
-            rel="shortcut icon"
-            href="./assets/logo.png"
-            type="image/x-icon"
-        />
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Crib - Apartment Hunting Made Easy</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.11.3/font/bootstrap-icons.min.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Fraunces:wght@400;500;600;700;800;900&family=Lora:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
-        <!-- Open Graph / Facebook -->
-        <meta property="og:title" content="Title of the project" />
-        <meta property="og:description" content="" />
-        <meta property="og:type" content="website" />
-        <meta property="og:url" content="https://github.com/PaulleDemon" />
-        <!--Replace with the current website url-->
-        <meta property="og:image" content="" />
+        :root {
+            --primary: #4ca626;
+            --primary-dark: #3a8a1c;
+            --primary-light: #5ec230;
+            --main-text: #d1fac0;
+            --text-dark: #1f2937;
+            --text-gray: #6b7280;
+            --bg-light: #f9fafb;
+            --white: #ffffff;
+            --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+            --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+        }
 
-        <!-- <link rel="stylesheet" href="../../tailwind-css/tailwind-runtime.css"> -->
-        <link rel="stylesheet" href="./css/tailwind-build.css" />
-        <link rel="stylesheet" href="css/index.css" />
+        body {
+            font-family: 'Lora', serif;
+            color: var(--text-dark);
+            background: var(--white);
+            line-height: 1.6;
+        }
+        
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Fraunces', serif;
+            font-weight: 700;
+        }
 
-        <link
-            rel="stylesheet"
-            href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.11.3/font/bootstrap-icons.min.css"
-            integrity="sha512-dPXYcDub/aeb08c63jRq/k6GaKccl256JQy/AnOq7CAnEZ9FzSL9wSbcZkMp4R26vBsMLFYH4kQ67/bbV8XaCQ=="
-            crossorigin="anonymous"
-            referrerpolicy="no-referrer"
-        />
-    </head>
-    <body class="tw-flex tw-min-h-[100vh] tw-flex-col tw-bg-[#fff]">
-        <header
-            class="tw-absolute tw-top-0 tw-z-20 tw-flex tw-h-[60px] tw-w-full tw-bg-opacity-0 tw-px-[5%] max-lg:tw-mr-auto max-lg:tw-px-4 lg:tw-justify-around"
-        >
-            <a class="tw-h-[50px] tw-w-[50px] tw-p-[4px]" href="">
-                <img
-                    src="./assets/logo.png"
-                    alt="logo"
-                    class="tw-object tw-h-full tw-w-full"
-                />
+        header {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            height: 70px;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+            z-index: 1000;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 5%;
+        }
+
+        nav {
+            display: flex;
+            align-items: center;
+            gap: 3rem;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2.5rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: var(--text-dark);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary);
+        }
+
+        .btn {
+            padding: 12px 28px;
+            background: var(--primary);
+            color: var(--white);
+            text-decoration: none;
+            border-radius: 8px;
+            font-weight: 600;
+            transition: all 0.3s;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            border: none;
+            cursor: pointer;
+        }
+
+        .btn:hover {
+            background: var(--primary-dark);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 12px rgba(76, 166, 38, 0.3);
+        }
+
+        .btn-secondary {
+            background: var(--bg-light);
+            color: var(--primary);
+        }
+
+        .btn-secondary:hover {
+            background: #e5e7eb;
+        }
+
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            padding: 100px 5% 60px;
+            background: linear-gradient(135deg, #0f172a 0%, #1e293b 50%, #334155 100%);
+        }
+
+        .hero-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            width: 100%;
+        }
+
+        .hero-text h1 {
+            font-size: 72px;
+            font-weight: 900;
+            color: var(--main-text);
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+            margin-bottom: 24px;
+        }
+
+        .hero-text p {
+            font-size: 18px;
+            color: rgba(209, 250, 192, 0.9);
+            margin-bottom: 32px;
+            max-width: 500px;
+            line-height: 1.8;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 16px;
+            flex-wrap: wrap;
+        }
+
+        .stats {
+            padding: 80px 5%;
+            background: var(--white);
+            text-align: center;
+        }
+
+        .stats h2 {
+            font-size: 36px;
+            margin-bottom: 48px;
+        }
+
+        .stats-grid {
+            display: flex;
+            justify-content: center;
+            gap: 80px;
+            flex-wrap: wrap;
+        }
+
+        .stat-number {
+            font-size: 64px;
+            font-weight: 800;
+            color: var(--primary);
+        }
+
+        .stat-label {
+            font-size: 18px;
+            color: var(--text-gray);
+        }
+
+        .features {
+            padding: 100px 5%;
+            background: var(--bg-light);
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 64px;
+        }
+
+        .section-subtitle {
+            color: var(--primary);
+            font-size: 16px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 12px;
+        }
+
+        .section-title {
+            font-size: 48px;
+            font-weight: 800;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 32px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .feature-card {
+            background: var(--white);
+            padding: 40px 32px;
+            border-radius: 16px;
+            text-align: center;
+            transition: all 0.3s;
+            box-shadow: var(--shadow);
+        }
+
+        .feature-card:hover {
+            transform: translateY(-8px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .feature-icon {
+            font-size: 48px;
+            color: var(--primary);
+            margin-bottom: 20px;
+        }
+
+        .feature-card h3 {
+            font-size: 24px;
+            margin-bottom: 16px;
+        }
+
+        .feature-card p {
+            color: var(--text-gray);
+            line-height: 1.7;
+        }
+
+        .pricing {
+            padding: 100px 5%;
+            background: var(--bg-light);
+        }
+
+        .pricing-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 32px;
+            max-width: 1200px;
+            margin: 48px auto 0;
+        }
+
+        .pricing-card {
+            background: var(--white);
+            padding: 48px 40px;
+            border-radius: 16px;
+            box-shadow: var(--shadow);
+            text-align: center;
+            transition: all 0.3s;
+            border: 2px solid transparent;
+            position: relative;
+        }
+
+        .pricing-card.featured {
+            border-color: var(--primary);
+            transform: scale(1.05);
+        }
+
+        .pricing-card:hover {
+            transform: translateY(-8px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .pricing-description {
+            color: var(--text-gray);
+            margin: 24px 0;
+            line-height: 1.7;
+        }
+
+        .pricing-features {
+            list-style: none;
+            margin: 32px 0;
+            text-align: left;
+        }
+
+        .pricing-features li {
+            padding: 12px 0;
+            color: var(--text-gray);
+        }
+
+        .pricing-features li:before {
+            content: "✓";
+            color: var(--primary);
+            font-weight: bold;
+            margin-right: 12px;
+        }
+
+        .newsletter {
+            padding: 100px 5%;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+            text-align: center;
+        }
+
+        .newsletter h2 {
+            font-size: 36px;
+            color: var(--white);
+            margin-bottom: 16px;
+        }
+
+        .newsletter p {
+            font-size: 18px;
+            color: rgba(255, 255, 255, 0.9);
+            margin-bottom: 32px;
+        }
+
+        .newsletter-form {
+            display: flex;
+            gap: 12px;
+            max-width: 500px;
+            margin: 0 auto;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .newsletter-form input {
+            flex: 1;
+            min-width: 280px;
+            padding: 16px 24px;
+            border: none;
+            border-radius: 8px;
+            font-size: 16px;
+        }
+
+        .newsletter-form .btn {
+            background: var(--white);
+            color: var(--primary);
+        }
+
+        footer {
+            padding: 80px 5% 40px;
+            background: var(--text-dark);
+            color: rgba(255, 255, 255, 0.8);
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 64px;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .footer-brand {
+            text-align: center;
+        }
+
+        .footer-address {
+            margin-bottom: 24px;
+            line-height: 1.8;
+        }
+
+        .footer-social-title {
+            font-size: 18px;
+            font-weight: 600;
+            margin-bottom: 16px;
+            color: var(--white);
+        }
+
+        .social-links {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+        }
+
+        .social-links a {
+            color: rgba(255, 255, 255, 0.8);
+            font-size: 24px;
+            transition: color 0.3s;
+        }
+
+        .social-links a:hover {
+            color: var(--primary-light);
+        }
+
+        .footer-links h3 {
+            font-size: 20px;
+            color: var(--white);
+            margin-bottom: 24px;
+        }
+
+        .footer-links-list {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+
+        .footer-links-list a {
+            color: rgba(255, 255, 255, 0.8);
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .footer-links-list a:hover {
+            color: var(--primary-light);
+        }
+
+        .footer-bottom {
+            text-align: center;
+            margin-top: 60px;
+            padding-top: 30px;
+            border-top: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .footer-bottom p {
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 15px;
+        }
+
+        .footer-bottom a {
+            color: var(--primary-light);
+            text-decoration: none;
+            margin: 0 8px;
+        }
+
+        .footer-bottom a:hover {
+            text-decoration: underline;
+        }
+
+        @media (max-width: 768px) {
+            .hero-text h1 {
+                font-size: 42px;
+            }
+            .footer-content {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <a href="#" style="font-family: 'Fraunces', serif; font-weight: 900; font-size: 28px; color: var(--primary); text-decoration: none;">Crib</a>
+        <nav>
+            <ul class="nav-links">
+                <li><a href="#about">About us</a></li>
+                <li><a href="#pricing">Pricing</a></li>
+                <li><a href="#features">Features</a></li>
+            </ul>
+            <a href="#" class="btn">
+                <span>Download</span>
+                <i class="bi bi-apple"></i>
             </a>
-            <div
-                class="collapsible-header animated-collapse max-lg:tw-shadow-md"
-                id="collapsed-header-items"
-            >
-                <div
-                    class="tw-flex tw-h-full tw-w-max tw-gap-5 tw-text-base tw-text-black max-lg:tw-mt-[30px] max-lg:tw-flex-col max-lg:tw-place-items-end max-lg:tw-gap-5 lg:tw-mx-auto lg:tw-place-items-center"
-                >
-                    <a class="header-links" href=""> About us </a>
-                    <a class="header-links" href="#pricing"> Pricing </a>
-                    <a class="header-links" href=""> Features </a>
-                    <a class="header-links" href=""> Blog </a>
-                    <a class="header-links" href=""> Contact us </a>
-                </div>
-                <div
-                    class="tw-mx-4 tw-flex tw-place-items-center tw-gap-[20px] tw-text-base max-md:tw-w-full max-md:tw-flex-col max-md:tw-place-content-center"
-                >
-                    <a
-                        href=""
-                        aria-label="signup"
-                        class="tw-rounded-md tw-bg-primary tw-px-3 tw-py-2 tw-text-white tw-transition-transform tw-duration-[0.3s] hover:tw-translate-x-2"
-                    >
-                        <span>Download</span>
-                        <i class="bi bi-apple"></i>
-                    </a>
+        </nav>
+    </header>
+
+    <section class="hero">
+        <div class="hero-content">
+            <div class="hero-text">
+                <h1>Crib</h1>
+                <p>Let apartment hunting be our full time job so you can do yours.</p>
+                <div class="hero-buttons">
+                    <a href="#" class="btn">Get started</a>
+                    <a href="#" class="btn btn-secondary">Learn more</a>
                 </div>
             </div>
-            <button
-                class="bi bi-list tw-absolute tw-right-3 tw-top-3 tw-z-50 tw-text-3xl tw-text-black lg:tw-hidden"
-                onclick="toggleHeader()"
-                aria-label="menu"
-                id="collapse-btn"
-            ></button>
-        </header>
+        </div>
+    </section>
 
-        <section
-            class="tw-relative tw-flex tw-min-h-[100vh] tw-w-full tw-max-w-[100vw] tw-flex-col tw-overflow-hidden max-lg:tw-p-4 max-md:tw-mt-[50px]"
-        >
-            <div
-                class="tw-flex tw-h-full tw-min-h-[100vh] tw-w-full tw-place-content-center tw-gap-6 tw-p-[5%] max-xl:tw-place-items-center max-lg:tw-flex-col"
-            >
-                <div class="tw-flex tw-flex-col tw-place-content-center">
-                    <div
-                        class="tw-text-6xl tw-font-semibold tw-uppercase tw-leading-[80px] max-lg:tw-text-4xl max-md:tw-leading-snug"
-                    >
-                        <span> Crib </span>
-                        <br />
-                        <span class="tw-text-primary"> time </span>
-                    </div>
-                    <div
-                        class="tw-mt-10 tw-max-w-[450px] tw-p-2 tw-text-justify max-lg:tw-max-w-full"
-                    >
-                        Let apartment hunting be our full time job so you can do yours.
-                    </div>
-
-                    <div
-                        class="tw-mt-4 tw-flex tw-place-items-center tw-gap-4 tw-overflow-hidden tw-p-2"
-                    >
-                        <a
-                            class="btn tw-transition-transform tw-duration-[0.3s] hover:tw-scale-x-[1.03]"
-                            href=""
-                        >
-                            Get started
-                        </a>
-                        <a
-                            class="btn !tw-bg-[#c8cbf984] !tw-text-primary tw-transition-transform tw-duration-[0.3s] hover:tw-scale-x-[1.03]"
-                            href=""
-                        >
-                            <span>Learn more</span>
-                        </a>
-                    </div>
-                </div>
-
-                <div
-                    class="tw-flex tw-w-full tw-max-w-[50%] tw-place-content-center tw-place-items-center tw-overflow-hidden max-lg:tw-max-w-[unset]"
-                >
-                    <div
-                        class="tw-flex tw-max-h-[580px] tw-min-h-[450px] tw-min-w-[350px] tw-max-w-[650px] tw-overflow-hidden max-lg:tw-h-fit max-lg:tw-max-h-[320px] max-lg:tw-min-h-[180px] max-lg:tw-w-[320px] max-lg:tw-min-w-[320px]"
-                    >
-                        <img
-                            src="./assets/images/home/iphone.png"
-                            alt="app"
-                            class="tw-h-full tw-w-full tw-object-contain"
-                        />
-                    </div>
-                </div>
+    <section class="stats">
+        <h2>In numbers</h2>
+        <div class="stats-grid">
+            <div class="stat-item">
+                <div class="stat-number">250k+</div>
+                <div class="stat-label">Installs</div>
             </div>
-        </section>
-        <section
-            class="tw-relative tw-flex tw-w-full tw-max-w-[100vw] tw-flex-col tw-place-content-center tw-place-items-center tw-overflow-hidden tw-p-6"
-            id="numbers"
-        >
-            <div class="tw-flex tw-flex-col tw-place-items-center tw-gap-8">
-                <h3 class="tw-text-3xl">In numbers</h3>
-                <div
-                    class="tw-flex tw-w-full tw-place-content-center tw-gap-10 max-md:tw-flex-col"
-                    id="numbers-container"
-                >
-                    <div>
-                        <span class="tw-text-6xl max-lg:tw-text-4xl">
-                            <span id="installs">250</span><span>k +</span>
-                        </span>
-                        <span
-                            class="tw-text-xl tw-font-medium tw-text-gray-800"
-                        >
-                            /Installs
-                        </span>
-                    </div>
-                    <div class="tw-text-6xl">
-                        <span class="tw-text-6xl max-lg:tw-text-4xl">
-                            <span id="hours">400</span>
-                            <span>+</span>
-                        </span>
-                        <span
-                            class="tw-text-xl tw-font-medium tw-text-gray-800"
-                        >
-                            /hrs saved
-                        </span>
-                    </div>
-                </div>
+            <div class="stat-item">
+                <div class="stat-number">400+</div>
+                <div class="stat-label">Hours Saved</div>
             </div>
-        </section>
+        </div>
+    </section>
 
-        <section
-            class="tw-relative tw-flex tw-w-full tw-max-w-[100vw] tw-flex-col tw-place-content-center tw-place-items-center tw-overflow-hidden tw-p-6"
-            id=""
-        >
-            <div
-                class="tw-mt-8 tw-flex tw-flex-col tw-place-items-center tw-gap-5"
-            >
-                <div
-                    class="tw-mt-5 tw-flex tw-flex-col tw-gap-3 tw-text-center"
-                >
-                    <h3 class="tw-text-xl tw-text-primary">
-                        Features loved by our clients
-                    </h3>
-                    <h2 class="tw-text-4xl tw-font-semibold">Features</h2>
-                </div>
-                <div
-                    class="tw-mt-6 tw-flex tw-max-w-[60%] tw-flex-wrap tw-place-content-center tw-gap-2 max-lg:tw-flex-col"
-                >
-                    <div
-                        class="tw-flex tw-h-[250px] tw-w-[350px] tw-flex-col tw-gap-2 tw-p-4 tw-text-center"
-                    >
-                        <!-- <img src="./assets/images/home/sample.jpg" 
-                                alt="feature1"> -->
-                        <i
-                            class="bi bi-boombox-fill tw-text-5xl tw-text-primary"
-                        ></i>
-                        <h3 class="tw-text-2xl tw-font-semibold">Feature 1</h3>
-                        <div class="tw-text-[#595959]">
-                            Lorem ipsum dolor sit amet consectetur, adipisicing
-                            elit. Quos, voluptates numquam quam expedita
-                            mollitia possimus. Quos tempora placeat pariatur
-                            est!
-                        </div>
-                    </div>
-                    <div
-                        class="tw-flex tw-h-[250px] tw-w-[350px] tw-flex-col tw-gap-2 tw-p-4 tw-text-center"
-                    >
-                        <!-- <img src="./assets/images/home/sample.jpg" 
-                                alt="feature1"> -->
-                        <i
-                            class="bi bi-award-fill tw-text-5xl tw-text-primary"
-                        ></i>
-                        <h3 class="tw-text-2xl tw-font-semibold">Feature 2</h3>
-                        <div class="tw-text-[#595959]">
-                            Lorem ipsum dolor sit amet consectetur, adipisicing
-                            elit. Quos, voluptates numquam quam expedita
-                            mollitia possimus. Quos tempora placeat pariatur
-                            est!
-                        </div>
-                    </div>
-                    <div
-                        class="tw-flex tw-h-[250px] tw-w-[350px] tw-flex-col tw-gap-2 tw-p-4 tw-text-center"
-                    >
-                        <!-- <img src="./assets/images/home/sample.jpg" 
-                                alt="feature1"> -->
-                        <i
-                            class="bi bi-book-fill tw-text-5xl tw-text-primary"
-                        ></i>
-                        <h3 class="tw-text-2xl tw-font-semibold">Feature 3</h3>
-                        <div class="tw-text-[#595959]">
-                            Lorem ipsum dolor sit amet consectetur, adipisicing
-                            elit. Quos, voluptates numquam quam expedita
-                            mollitia possimus. Quos tempora placeat pariatur
-                            est!
-                        </div>
-                    </div>
-                    <div
-                        class="tw-flex tw-h-[250px] tw-w-[350px] tw-flex-col tw-gap-2 tw-p-4 tw-text-center"
-                    >
-                        <!-- <img src="./assets/images/home/sample.jpg" 
-                                alt="feature1"> -->
-                        <i
-                            class="bi bi-briefcase-fill tw-text-5xl tw-text-primary"
-                        ></i>
-                        <h3 class="tw-text-2xl tw-font-semibold">Feature 4</h3>
-                        <div class="tw-text-[#595959]">
-                            Lorem ipsum dolor sit amet consectetur, adipisicing
-                            elit. Quos, voluptates numquam quam expedita
-                            mollitia possimus. Quos tempora placeat pariatur
-                            est!
-                        </div>
-                    </div>
-                    <div
-                        class="tw-flex tw-h-[250px] tw-w-[350px] tw-flex-col tw-gap-2 tw-p-4 tw-text-center"
-                    >
-                        <!-- <img src="./assets/images/home/sample.jpg" 
-                                alt="feature1"> -->
-                        <i
-                            class="bi bi-credit-card-2-front-fill tw-text-5xl tw-text-primary"
-                        ></i>
-                        <h3 class="tw-text-2xl tw-font-semibold">Feature 5</h3>
-                        <div class="tw-text-[#595959]">
-                            Lorem ipsum dolor sit amet consectetur, adipisicing
-                            elit. Quos, voluptates numquam quam expedita
-                            mollitia possimus. Quos tempora placeat pariatur
-                            est!
-                        </div>
-                    </div>
-                    <div
-                        class="tw-flex tw-h-[250px] tw-w-[350px] tw-flex-col tw-gap-2 tw-p-4 tw-text-center"
-                    >
-                        <!-- <img src="./assets/images/home/sample.jpg" 
-                            alt="feature1"> -->
-                        <i class="bi bi-fire tw-text-5xl tw-text-primary"></i>
-                        <h3 class="tw-text-2xl tw-font-semibold">Feature 6</h3>
-                        <div class="tw-text-[#595959]">
-                            Lorem ipsum dolor sit amet consectetur, adipisicing
-                            elit. Quos, voluptates numquam quam expedita
-                            mollitia possimus. Quos tempora placeat pariatur
-                            est!
-                        </div>
-                    </div>
-                </div>
+    <section class="features" id="features">
+        <div class="section-header">
+            <div class="section-subtitle">Features loved by our clients</div>
+            <h2 class="section-title">Features</h2>
+        </div>
+        <div class="features-grid">
+            <div class="feature-card">
+                <i class="bi bi-boombox-fill feature-icon"></i>
+                <h3>Feature 1</h3>
+                <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quos, voluptates numquam quam expedita mollitia possimus.</p>
             </div>
-        </section>
-
-        <section
-            class="tw-mt-5 tw-flex tw-w-full tw-flex-col tw-place-items-center tw-p-[2%]"
-        >
-            <h3
-                class="tw-text-3xl tw-font-medium tw-text-primary max-md:tw-text-2xl"
-            >
-                What our clients say
-            </h3>
-            <!-- Testimonials -->
-            <div
-                class="tw-mt-8 tw-gap-10 tw-space-y-8 max-md:tw-columns-1 lg:tw-columns-2 xl:tw-columns-3"
-            >
-                <div
-                    class="tw-flex tw-h-fit tw-w-[350px] tw-break-inside-avoid tw-flex-col tw-rounded-lg tw-p-4 tw-shadow-lg max-lg:tw-w-[320px]"
-                >
-                    <div class="tw-flex tw-place-items-center tw-gap-3">
-                        <div
-                            class="tw-h-[50px] tw-w-[50px] tw-overflow-hidden tw-rounded-full tw-border-[2px] tw-border-solid tw-border-primary"
-                        >
-                            <img
-                                src="./assets/images/people/women.jpg"
-                                class="tw-h-full tw-w-full tw-object-cover"
-                                alt="women"
-                            />
-                        </div>
-                        <div class="tw-flex tw-flex-col tw-gap-1">
-                            <div class="tw-font-semibold">Trich B</div>
-                            <div class="tw-text-[#4b4b4b]">AMI, ceo</div>
-                        </div>
-                    </div>
-                    <p class="tw-mt-4 tw-italic tw-text-gray-600">
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                        Voluptate, sequi sunt velit aut omnis nulla ut, autem
-                        corrupti nemo optio ipsam amet ducimus illum?
-                        Repellendus itaque autem alias eos quis.
-                    </p>
-                </div>
-                <div
-                    class="tw-flex tw-h-fit tw-w-[350px] tw-break-inside-avoid tw-flex-col tw-rounded-lg tw-p-4 tw-shadow-lg max-lg:tw-w-[320px]"
-                >
-                    <div class="tw-flex tw-place-items-center tw-gap-3">
-                        <div
-                            class="tw-h-[50px] tw-w-[50px] tw-overflow-hidden tw-rounded-full tw-border-[2px] tw-border-solid tw-border-primary"
-                        >
-                            <img
-                                src="./assets/images/people/man.jpg"
-                                class="tw-h-full tw-w-full tw-object-cover"
-                                alt="man"
-                            />
-                        </div>
-                        <div class="tw-flex tw-flex-col tw-gap-1">
-                            <div class="tw-font-semibold">John B</div>
-                            <div class="tw-text-[#4b4b4b]">ABC, cto</div>
-                        </div>
-                    </div>
-                    <p class="tw-mt-4 tw-italic tw-text-gray-600">
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                        Inventore deserunt delectus consectetur enim cupiditate
-                        ab nemo voluptas repellendus qui quas..
-                    </p>
-                </div>
-                <div
-                    class="tw-flex tw-h-fit tw-w-[350px] tw-break-inside-avoid tw-flex-col tw-rounded-lg tw-p-4 tw-shadow-lg max-lg:tw-w-[320px]"
-                >
-                    <div class="tw-flex tw-place-items-center tw-gap-3">
-                        <div
-                            class="tw-h-[50px] tw-w-[50px] tw-overflow-hidden tw-rounded-full tw-border-[2px] tw-border-solid tw-border-primary"
-                        >
-                            <img
-                                src="./assets/images/people/man2.jpg"
-                                class="tw-h-full tw-w-full tw-object-cover"
-                                alt="man"
-                            />
-                        </div>
-                        <div class="tw-flex tw-flex-col tw-gap-1">
-                            <div class="tw-font-semibold">Mante</div>
-                            <div class="tw-text-[#4b4b4b]">xyz, cto</div>
-                        </div>
-                    </div>
-                    <p class="tw-mt-4 tw-italic tw-text-gray-600">
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                        Quidem, numquam.
-                    </p>
-                </div>
-                <div
-                    class="tw-flex tw-h-fit tw-w-[350px] tw-break-inside-avoid tw-flex-col tw-rounded-lg tw-p-4 tw-shadow-lg max-lg:tw-w-[320px]"
-                >
-                    <div class="tw-flex tw-place-items-center tw-gap-3">
-                        <div
-                            class="tw-h-[50px] tw-w-[50px] tw-overflow-hidden tw-rounded-full tw-border-[2px] tw-border-solid tw-border-primary"
-                        >
-                            <img
-                                src="./assets/images/people/women.jpg"
-                                class="tw-h-full tw-w-full tw-object-cover"
-                                alt="man"
-                            />
-                        </div>
-                        <div class="tw-flex tw-flex-col tw-gap-1">
-                            <div class="tw-font-semibold">Lara</div>
-                            <div class="tw-text-[#4b4b4b]">xz, cto</div>
-                        </div>
-                    </div>
-                    <p class="tw-mt-4 tw-italic tw-text-gray-600">
-                        Lorem ipsum dolor, sit amet consectetur adipisicing
-                        elit. Soluta, saepe illum. Dicta quisquam praesentium
-                        quod!
-                    </p>
-                </div>
-                <div
-                    class="tw-flex tw-h-fit tw-w-[350px] tw-break-inside-avoid tw-flex-col tw-rounded-lg tw-p-4 tw-shadow-lg max-lg:tw-w-[320px]"
-                >
-                    <div class="tw-flex tw-place-items-center tw-gap-3">
-                        <div
-                            class="tw-h-[50px] tw-w-[50px] tw-overflow-hidden tw-rounded-full tw-border-[2px] tw-border-solid tw-border-primary"
-                        >
-                            <img
-                                src="./assets/images/people/man.jpg"
-                                class="tw-h-full tw-w-full tw-object-cover"
-                                alt="man"
-                            />
-                        </div>
-                        <div class="tw-flex tw-flex-col tw-gap-1">
-                            <div class="tw-font-semibold">James</div>
-                            <div class="tw-text-[#4b4b4b]">app, cto</div>
-                        </div>
-                    </div>
-                    <p class="tw-mt-4 tw-italic tw-text-gray-600">
-                        Lorem ipsum dolor sit amet, consectetur adipisicing
-                        elit. Fuga accusamus non enim debitis rem neque beatae
-                        explicabo corrupti porro ullam?
-                    </p>
-                </div>
-                <div
-                    class="tw-flex tw-h-fit tw-w-[350px] tw-break-inside-avoid tw-flex-col tw-rounded-lg tw-p-4 tw-shadow-lg max-lg:tw-w-[320px]"
-                >
-                    <div class="tw-flex tw-place-items-center tw-gap-3">
-                        <div
-                            class="tw-h-[50px] tw-w-[50px] tw-overflow-hidden tw-rounded-full tw-border-[2px] tw-border-solid tw-border-primary"
-                        >
-                            <img
-                                src="./assets/images/people/man2.jpg"
-                                class="tw-h-full tw-w-full tw-object-cover"
-                                alt="man"
-                            />
-                        </div>
-                        <div class="tw-flex tw-flex-col tw-gap-1">
-                            <div class="tw-font-semibold">Ron</div>
-                            <div class="tw-text-[#4b4b4b]">
-                                marketplace, cto
-                            </div>
-                        </div>
-                    </div>
-                    <p class="tw-mt-4 tw-italic tw-text-gray-600">
-                        Lorem ipsum dolor sit amet, consectetur adipisicing
-                        elit. Fuga accusamus non enim debitis rem neque beatae
-                        explicabo corrupti porro ullam?
-                    </p>
-                </div>
+            <div class="feature-card">
+                <i class="bi bi-award-fill feature-icon"></i>
+                <h3>Feature 2</h3>
+                <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quos, voluptates numquam quam expedita mollitia possimus.</p>
             </div>
-        </section>
-
-        <section
-            class="tw-mt-5 tw-flex tw-w-full tw-flex-col tw-place-items-center tw-p-[2%]"
-            id="pricing"
-        >
-            <h3
-                class="tw-text-3xl tw-font-medium tw-text-primary max-md:tw-text-2xl"
-            >
-                Simple pricing
-            </h3>
-            <!-- pricing -->
-            <div
-                class="tw-mt-10 tw-flex tw-flex-wrap tw-place-content-center tw-gap-8 max-lg:tw-flex-col"
-            >
-                <div
-                    class="tw-flex tw-w-[380px] tw-flex-col tw-place-items-center tw-gap-2 tw-rounded-lg tw-p-8 tw-shadow-xl max-lg:tw-w-[320px]"
-                >
-                    <h3 class="">
-                        <span class="tw-text-5xl tw-font-semibold">$9</span>
-                        <span class="tw-text-2xl tw-text-gray-600">/mo</span>
-                    </h3>
-                    <p class="tw-mt-3 tw-text-center tw-text-gray-600">
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                        Ab, explicabo!
-                    </p>
-                    <hr />
-                    <ul
-                        class="tw-mt-4 tw-flex tw-flex-col tw-gap-2 tw-text-center tw-text-lg tw-text-gray-600"
-                    >
-                        <li>Lorem ipsum dolor sit amet.</li>
-                        <li>Lorem, ipsum.</li>
-                        <li>Lorem, ipsum dolor.</li>
-                        <li>Lorem ipsum dolor sit.</li>
-                    </ul>
-                    <a
-                        href="http://"
-                        class="btn tw-mt-8 !tw-w-full tw-transition-transform tw-duration-[0.3s] hover:tw-scale-x-[1.02]"
-                    >
-                        Get now
-                    </a>
-                </div>
-                <div
-                    class="tw-flex tw-w-[380px] tw-flex-col tw-place-items-center tw-gap-2 tw-rounded-lg tw-border-2 tw-border-primary tw-p-8 tw-shadow-xl max-lg:tw-w-[320px]"
-                >
-                    <h3 class="">
-                        <span class="tw-text-5xl tw-font-semibold">$19</span>
-                        <span class="tw-text-2xl tw-text-gray-600">/mo</span>
-                    </h3>
-                    <p class="tw-mt-3 tw-text-center tw-text-gray-600">
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                        Ab, explicabo!
-                    </p>
-                    <hr />
-                    <ul
-                        class="tw-mt-4 tw-flex tw-flex-col tw-gap-2 tw-text-center tw-text-lg tw-text-gray-600"
-                    >
-                        <li>Lorem ipsum dolor sit amet.</li>
-                        <li>Lorem, ipsum.</li>
-                        <li>Lorem, ipsum dolor.</li>
-                        <li>Lorem ipsum dolor sit.</li>
-                    </ul>
-                    <a
-                        href="http://"
-                        class="btn tw-mt-8 !tw-w-full tw-transition-transform tw-duration-[0.3s] hover:tw-scale-x-[1.02]"
-                    >
-                        Get now
-                    </a>
-                </div>
-                <div
-                    class="tw-flex tw-w-[380px] tw-flex-col tw-place-items-center tw-gap-2 tw-rounded-lg tw-p-8 tw-shadow-xl max-lg:tw-w-[320px]"
-                >
-                    <h3 class="">
-                        <span class="tw-text-5xl tw-font-semibold">$49</span>
-                        <span class="tw-text-2xl tw-text-gray-600">/mo</span>
-                    </h3>
-                    <p class="tw-mt-3 tw-text-center tw-text-gray-600">
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                        Ab, explicabo!
-                    </p>
-                    <hr />
-                    <ul
-                        class="tw-mt-4 tw-flex tw-flex-col tw-gap-2 tw-text-center tw-text-lg tw-text-gray-600"
-                    >
-                        <li>Lorem ipsum dolor sit amet.</li>
-                        <li>Lorem, ipsum.</li>
-                        <li>Lorem, ipsum dolor.</li>
-                        <li>Lorem ipsum dolor sit.</li>
-                    </ul>
-                    <a
-                        href="http://"
-                        class="btn tw-mt-8 !tw-w-full tw-transition-transform tw-duration-[0.3s] hover:tw-scale-x-[1.02]"
-                    >
-                        Get now
-                    </a>
-                </div>
+            <div class="feature-card">
+                <i class="bi bi-book-fill feature-icon"></i>
+                <h3>Feature 3</h3>
+                <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quos, voluptates numquam quam expedita mollitia possimus.</p>
             </div>
-        </section>
-        <section
-            class="tw-mt-5 tw-flex tw-w-full tw-flex-col tw-place-items-center tw-p-[2%]"
-            id="pricing"
-        >
-            <h3
-                class="tw-text-3xl tw-font-medium tw-text-primary max-md:tw-text-2xl"
-            >
-                Read more
-            </h3>
-            <!-- pricing -->
-            <div
-                class="tw-mt-10 tw-flex tw-flex-wrap tw-place-content-center tw-gap-8 max-lg:tw-flex-col"
-            >
-                <a
-                    href=""
-                    class="tw-flex tw-h-[300px] tw-w-[350px] tw-flex-col tw-place-items-center tw-gap-2 tw-overflow-clip tw-rounded-lg tw-p-2 tw-shadow-xl max-lg:tw-w-[300px]"
-                >
-                    <div
-                        class="tw-h-[200px] tw-w-full tw-overflow-hidden tw-rounded-md"
-                    >
-                        <img
-                            src="./assets/images/home/sample.jpg"
-                            alt="article image"
-                            class="tw-h-full tw-w-full tw-object-cover"
-                            srcset=""
-                        />
-                    </div>
-                    <h3 class="tw-text-3xl tw-font-semibold max-md:tw-text-2xl">
-                        Article 1
-                    </h3>
-                    <p class="tw-mt-2 tw-text-center tw-text-gray-600">
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                        Ab, explicabo!
-                    </p>
-                </a>
-                <a
-                    href=""
-                    class="tw-flex tw-h-[300px] tw-w-[350px] tw-flex-col tw-place-items-center tw-gap-2 tw-overflow-clip tw-rounded-lg tw-p-2 tw-shadow-xl max-lg:tw-w-[300px]"
-                >
-                    <div
-                        class="tw-h-[200px] tw-w-full tw-overflow-hidden tw-rounded-md"
-                    >
-                        <img
-                            src="./assets/images/home/sample.jpg"
-                            alt="article image"
-                            class="tw-h-full tw-w-full tw-object-cover"
-                            srcset=""
-                        />
-                    </div>
-                    <h3 class="tw-text-3xl tw-font-semibold max-md:tw-text-2xl">
-                        Article 2
-                    </h3>
-                    <p class="tw-mt-2 tw-text-center tw-text-gray-600">
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                        Ab, explicabo!
-                    </p>
-                </a>
-                <a
-                    href=""
-                    class="tw-flex tw-h-[300px] tw-w-[350px] tw-flex-col tw-place-items-center tw-gap-2 tw-overflow-clip tw-rounded-lg tw-p-2 tw-shadow-xl max-lg:tw-w-[300px]"
-                >
-                    <div
-                        class="tw-h-[200px] tw-w-full tw-overflow-hidden tw-rounded-md"
-                    >
-                        <img
-                            src="./assets/images/home/sample.jpg"
-                            alt="article image"
-                            class="tw-h-full tw-w-full tw-object-cover"
-                            srcset=""
-                        />
-                    </div>
-                    <h3 class="tw-text-3xl tw-font-semibold max-md:tw-text-2xl">
-                        Article 3
-                    </h3>
-                    <p class="tw-mt-2 tw-text-center tw-text-gray-600">
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                        Ab, explicabo!
-                    </p>
-                </a>
-            </div>
-        </section>
+        </div>
+    </section>
 
-        <section
-            class="tw-flex tw-w-full tw-flex-col tw-place-content-center tw-place-items-center tw-gap-[10%] tw-p-[5%] tw-px-[10%]"
-        >
-            <div
-                class="tw-flex tw-w-full tw-flex-col tw-place-content-center tw-place-items-center tw-gap-3"
-            >
-                <h2 class="tw-text-2xl tw-text-primary max-md:tw-text-xl">
-                    Special Newsletter signup
-                </h2>
-                <h2 class="tw-text-xl max-md:tw-text-lg">
-                    Keep yourself updated
-                </h2>
-
-                <div
-                    class="tw-flex tw-h-[60px] tw-place-items-center tw-gap-2 tw-overflow-hidden tw-p-2"
-                >
-                    <input
-                        type="email"
-                        class="input tw-h-full tw-w-full tw-p-2 tw-outline-none"
-                        placeholder="email"
-                    />
-                    <a
-                        class="btn tw-transition-colors tw-duration-[0.3s]"
-                        href=""
-                    >
-                        Signup
-                    </a>
+    <section class="pricing" id="pricing">
+        <div class="section-header">
+            <h2 class="section-title" style="color: var(--primary);">How it works</h2>
+            <p style="max-width: 700px; margin: 16px auto 0; color: var(--text-gray); font-size: 18px;">
+                Renters post apartment viewing requests. Viewers set their own rates and go see apartments on your behalf.
+            </p>
+        </div>
+        <div class="pricing-grid">
+            <div class="pricing-card">
+                <div style="font-size: 48px; color: var(--primary); margin-bottom: 16px;">
+                    <i class="bi bi-eye"></i>
                 </div>
+                <h3 style="font-size: 32px; margin-bottom: 16px;">For Viewers</h3>
+                <p class="pricing-description">Set your own rates and help renters find their perfect apartment.</p>
+                <ul class="pricing-features">
+                    <li>Set your own hourly rate</li>
+                    <li>Choose which viewings to accept</li>
+                    <li>Flexible schedule</li>
+                    <li>Get paid quickly</li>
+                    <li>Build your reputation</li>
+                </ul>
+                <a href="#" class="btn" style="width: 100%;">Become a Viewer</a>
+                <p style="margin-top: 16px; font-size: 14px; color: var(--text-gray);">
+                    <strong>Typical rates:</strong> $25-$75/hour
+                </p>
             </div>
-        </section>
+            <div class="pricing-card featured">
+                <div style="position: absolute; top: -12px; left: 50%; transform: translateX(-50%); background: var(--primary); color: white; padding: 6px 20px; border-radius: 20px; font-size: 14px; font-weight: 700;">
+                    MOST POPULAR
+                </div>
+                <div style="font-size: 48px; color: var(--primary); margin-bottom: 16px;">
+                    <i class="bi bi-house-door"></i>
+                </div>
+                <h3 style="font-size: 32px; margin-bottom: 16px;">For Renters</h3>
+                <p class="pricing-description">Hire a trusted Viewer to see properties for you.</p>
+                <ul class="pricing-features">
+                    <li>Post viewing requests for free</li>
+                    <li>Browse Viewers by rate</li>
+                    <li>Get detailed video tours</li>
+                    <li>Save time on apartment hunting</li>
+                    <li>Secure payment protection</li>
+                </ul>
+                <a href="#" class="btn" style="width: 100%;">Find a Viewer</a>
+                <p style="margin-top: 16px; font-size: 14px; color: var(--text-gray);">
+                    Pay Viewer's rate + small service fee
+                </p>
+            </div>
+            <div class="pricing-card">
+                <div style="font-size: 48px; color: var(--primary); margin-bottom: 16px;">
+                    <i class="bi bi-briefcase"></i>
+                </div>
+                <h3 style="font-size: 32px; margin-bottom: 16px;">For Property Managers</h3>
+                <p class="pricing-description">Fill vacancies faster with verified Viewers.</p>
+                <ul class="pricing-features">
+                    <li>List properties for free</li>
+                    <li>Schedule viewings easily</li>
+                    <li>Work with verified Viewers</li>
+                    <li>Track viewing requests</li>
+                    <li>Premium options available</li>
+                </ul>
+                <a href="#" class="btn" style="width: 100%;">List Property</a>
+                <p style="margin-top: 16px; font-size: 14px; color: var(--text-gray);">
+                    <strong>Free to list.</strong> Premium at $49/mo
+                </p>
+            </div>
+        </div>
+    </section>
 
-        <footer
-            class="tw-mt-auto tw-flex tw-w-full tw-place-content-around tw-gap-3 tw-p-[5%] tw-px-[10%] tw-text-black max-md:tw-flex-col"
-        >
-            <div
-                class="tw-flex tw-h-full tw-w-[250px] tw-flex-col tw-place-items-center tw-gap-6 max-md:tw-w-full"
-            >
-                <img
-                    src="./assets/logo.png"
-                    alt="logo"
-                    srcset=""
-                    class="tw-max-w-[120px]"
-                />
-                <div>
-                    2 Lord Edward St,
-                    <br />
-                    D02 P634,
-                    <br />
+    <section class="newsletter">
+        <h2>Newsletter Signup</h2>
+        <p>Keep yourself updated</p>
+        <form class="newsletter-form">
+            <input type="email" placeholder="Enter your email" />
+            <button type="submit" class="btn">Signup</button>
+        </form>
+    </section>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-brand">
+                <div style="font-family: 'Fraunces', serif; font-weight: 900; font-size: 36px; color: var(--main-text); margin-bottom: 24px;">Crib</div>
+                <div class="footer-address">
+                    2 Lord Edward St,<br />
+                    D02 P634,<br />
                     United Kingdom
                 </div>
-                <div class="tw-mt-3 tw-text-lg tw-font-semibold">Follow us</div>
-                <div class="tw-flex tw-gap-4 tw-text-2xl">
-                    <a href="" aria-label="Facebook">
-                        <i class="bi bi-facebook"></i>
-                    </a>
-                    <a
-                        href="https://twitter.com/@pauls_freeman"
-                        aria-label="Twitter"
-                    >
-                        <i class="bi bi-twitter"></i>
-                    </a>
-                    <a
-                        href="https://instagram.com/"
-                        class="tw-h-[40px] tw-w-[40px]"
-                        aria-label="Instagram"
-                    >
-                        <i class="bi bi-instagram"></i>
-                    </a>
+                <div class="footer-social-title">Follow us</div>
+                <div class="social-links">
+                    <a href="#"><i class="bi bi-facebook"></i></a>
+                    <a href="#"><i class="bi bi-twitter"></i></a>
+                    <a href="#"><i class="bi bi-instagram"></i></a>
                 </div>
             </div>
-
-            <div class="tw-flex tw-h-full tw-w-[250px] tw-flex-col tw-gap-4">
-                <h2 class="tw-text-3xl max-md:tw-text-xl">Resources</h2>
-                <div class="tw-flex tw-flex-col tw-gap-3 max-md:tw-text-sm">
-                    <a href="" class="footer-link">About us</a>
-                    <a href="" class="footer-link">FAQ</a>
-                    <a href="" class="footer-link">Contact Us</a>
-                    <a href="" class="footer-link">Blogs</a>
-                    <a href="" class="footer-link">Privacy policy</a>
+            <div class="footer-links">
+                <h3>Resources</h3>
+                <div class="footer-links-list">
+                    <a href="#">About us</a>
+                    <a href="#">FAQ</a>
+                    <a href="#">Contact Us</a>
+                    <a href="terms.html">Terms & Conditions</a>
+                    <a href="#">Privacy Policy</a>
                 </div>
             </div>
-        </footer>
-    </body>
-
-    <script
-        src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.0/gsap.min.js"
-        integrity="sha512-B1lby8cGcAUU3GR+Fd809/ZxgHbfwJMp0jLTVfHiArTuUt++VqSlJpaJvhNtRf3NERaxDNmmxkdx2o+aHd4bvw=="
-        crossorigin="anonymous"
-        referrerpolicy="no-referrer"
-    ></script>
-    <script
-        src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.0/ScrollTrigger.min.js"
-        integrity="sha512-AY2+JxnBETJ0wcXnLPCcZJIJx0eimyhz3OJ55k2Jx4RtYC+XdIi2VtJQ+tP3BaTst4otlGG1TtPJ9fKrAUnRdQ=="
-        crossorigin="anonymous"
-        referrerpolicy="no-referrer"
-    ></script>
-
-    <script src="./index.js"></script>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 Crib. All rights reserved. | <a href="terms.html">Terms & Conditions</a> | <a href="#">Privacy Policy</a></p>
+        </div>
+    </footer>
+</body>
 </html>
