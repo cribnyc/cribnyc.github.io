@@ -42,7 +42,7 @@
             position: fixed;
             top: 0;
             width: 100%;
-            height: 70px;
+            height: 60px;
             background: rgba(255, 255, 255, 0.95);
             backdrop-filter: blur(10px);
             box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
@@ -51,29 +51,6 @@
             align-items: center;
             justify-content: space-between;
             padding: 0 5%;
-        }
-
-        nav {
-            display: flex;
-            align-items: center;
-            gap: 3rem;
-        }
-
-        .nav-links {
-            display: flex;
-            gap: 2.5rem;
-            list-style: none;
-        }
-
-        .nav-links a {
-            color: var(--text-dark);
-            text-decoration: none;
-            font-weight: 500;
-            transition: color 0.3s;
-        }
-
-        .nav-links a:hover {
-            color: var(--primary);
         }
 
         .btn {
@@ -89,6 +66,7 @@
             gap: 8px;
             border: none;
             cursor: pointer;
+            font-size: 16px;
         }
 
         .btn:hover {
@@ -98,26 +76,27 @@
         }
 
         .btn-secondary {
-            background: var(--bg-light);
-            color: var(--primary);
+            background: rgba(255, 255, 255, 0.2);
+            color: var(--white);
+            border: 2px solid var(--white);
         }
 
         .btn-secondary:hover {
-            background: #e5e7eb;
+            background: rgba(255, 255, 255, 0.3);
         }
 
         .hero {
-            min-height: 100vh;
+            min-height: 80vh;
             display: flex;
             align-items: center;
-            padding: 100px 5% 60px;
+            justify-content: flex-start;
+            padding: 80px 5% 40px;
             background: linear-gradient(135deg, #0f172a 0%, #1e293b 50%, #334155 100%);
         }
 
         .hero-content {
-            max-width: 1400px;
-            margin: 0 auto;
-            width: 100%;
+            max-width: 800px;
+            text-align: left;
         }
 
         .hero-text h1 {
@@ -129,211 +108,148 @@
         }
 
         .hero-text p {
-            font-size: 18px;
+            font-size: 20px;
             color: rgba(209, 250, 192, 0.9);
-            margin-bottom: 32px;
-            max-width: 500px;
+            margin-bottom: 48px;
             line-height: 1.8;
         }
 
         .hero-buttons {
             display: flex;
             gap: 16px;
+            justify-content: flex-start;
             flex-wrap: wrap;
         }
 
-        .stats {
-            padding: 80px 5%;
+        .about {
+            padding: 100px 5%;
             background: var(--white);
             text-align: center;
         }
 
-        .stats h2 {
-            font-size: 36px;
-            margin-bottom: 48px;
-        }
-
-        .stats-grid {
-            display: flex;
-            justify-content: center;
-            gap: 80px;
-            flex-wrap: wrap;
-        }
-
-        .stat-number {
-            font-size: 64px;
-            font-weight: 800;
-            color: var(--primary);
-        }
-
-        .stat-label {
-            font-size: 18px;
-            color: var(--text-gray);
-        }
-
-        .features {
-            padding: 100px 5%;
-            background: var(--bg-light);
-        }
-
-        .section-header {
-            text-align: center;
-            margin-bottom: 64px;
-        }
-
-        .section-subtitle {
-            color: var(--primary);
-            font-size: 16px;
-            font-weight: 600;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            margin-bottom: 12px;
-        }
-
-        .section-title {
-            font-size: 48px;
-            font-weight: 800;
-        }
-
-        .features-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-            gap: 32px;
-            max-width: 1200px;
+        .about-content {
+            max-width: 900px;
             margin: 0 auto;
         }
 
-        .feature-card {
-            background: var(--white);
-            padding: 40px 32px;
-            border-radius: 16px;
-            text-align: center;
-            transition: all 0.3s;
-            box-shadow: var(--shadow);
-        }
-
-        .feature-card:hover {
-            transform: translateY(-8px);
-            box-shadow: var(--shadow-lg);
-        }
-
-        .feature-icon {
+        .about h2 {
             font-size: 48px;
             color: var(--primary);
-            margin-bottom: 20px;
+            margin-bottom: 32px;
         }
 
-        .feature-card h3 {
-            font-size: 24px;
-            margin-bottom: 16px;
-        }
-
-        .feature-card p {
+        .about p {
+            font-size: 20px;
             color: var(--text-gray);
-            line-height: 1.7;
+            line-height: 1.8;
+            margin-bottom: 24px;
         }
 
-        .pricing {
+        .how-it-works {
             padding: 100px 5%;
             background: var(--bg-light);
         }
 
-        .pricing-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-            gap: 32px;
-            max-width: 1200px;
-            margin: 48px auto 0;
+        .how-it-works h2 {
+            font-size: 48px;
+            color: var(--primary);
+            margin-bottom: 64px;
+            text-align: center;
         }
 
-        .pricing-card {
+        .roles-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 48px;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .role-card {
             background: var(--white);
             padding: 48px 40px;
             border-radius: 16px;
-            box-shadow: var(--shadow);
+            box-shadow: var(--shadow-lg);
             text-align: center;
             transition: all 0.3s;
-            border: 2px solid transparent;
-            position: relative;
         }
 
-        .pricing-card.featured {
-            border-color: var(--primary);
-            transform: scale(1.05);
-        }
-
-        .pricing-card:hover {
+        .role-card:hover {
             transform: translateY(-8px);
-            box-shadow: var(--shadow-lg);
         }
 
-        .pricing-description {
+        .role-icon {
+            font-size: 64px;
+            color: var(--primary);
+            margin-bottom: 24px;
+            line-height: 1;
+        }
+
+        .role-card h3 {
+            font-size: 32px;
+            margin-bottom: 16px;
+            color: var(--text-dark);
+        }
+
+        .role-card p {
+            font-size: 18px;
             color: var(--text-gray);
-            margin: 24px 0;
             line-height: 1.7;
         }
 
-        .pricing-features {
-            list-style: none;
-            margin: 32px 0;
-            text-align: left;
-        }
-
-        .pricing-features li {
-            padding: 12px 0;
-            color: var(--text-gray);
-        }
-
-        .pricing-features li:before {
-            content: "✓";
-            color: var(--primary);
-            font-weight: bold;
-            margin-right: 12px;
-        }
-
-        .newsletter {
-            padding: 100px 5%;
+        .waitlist {
+            padding: 120px 5%;
             background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
             text-align: center;
         }
 
-        .newsletter h2 {
-            font-size: 36px;
+        .waitlist h2 {
+            font-size: 48px;
             color: var(--white);
-            margin-bottom: 16px;
+            margin-bottom: 24px;
         }
 
-        .newsletter p {
-            font-size: 18px;
+        .waitlist p {
+            font-size: 20px;
             color: rgba(255, 255, 255, 0.9);
-            margin-bottom: 32px;
+            margin-bottom: 48px;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
         }
 
-        .newsletter-form {
+        .waitlist-form {
             display: flex;
-            gap: 12px;
-            max-width: 500px;
+            gap: 16px;
+            max-width: 600px;
             margin: 0 auto;
             flex-wrap: wrap;
             justify-content: center;
         }
 
-        .newsletter-form input {
+        .waitlist-form input {
             flex: 1;
-            min-width: 280px;
-            padding: 16px 24px;
+            min-width: 300px;
+            padding: 18px 28px;
             border: none;
             border-radius: 8px;
-            font-size: 16px;
+            font-size: 18px;
+            font-family: 'Lora', serif;
         }
 
-        .newsletter-form .btn {
+        .waitlist-form .btn {
             background: var(--white);
             color: var(--primary);
+            font-size: 18px;
+            padding: 18px 36px;
+        }
+
+        .waitlist-form .btn:hover {
+            background: var(--bg-light);
         }
 
         footer {
-            padding: 80px 5% 40px;
+            padding: 60px 5% 40px;
             background: var(--text-dark);
             color: rgba(255, 255, 255, 0.8);
         }
@@ -424,9 +340,18 @@
 
         @media (max-width: 768px) {
             .hero-text h1 {
-                font-size: 42px;
+                font-size: 48px;
+            }
+            .hero-text p {
+                font-size: 18px;
+            }
+            .about h2, .how-it-works h2, .waitlist h2 {
+                font-size: 36px;
             }
             .footer-content {
+                grid-template-columns: 1fr;
+            }
+            .roles-grid {
                 grid-template-columns: 1fr;
             }
         }
@@ -434,18 +359,8 @@
 </head>
 <body>
     <header>
-        <a href="#" style="font-family: 'Fraunces', serif; font-weight: 900; font-size: 28px; color: var(--primary); text-decoration: none;">Crib</a>
-        <nav>
-            <ul class="nav-links">
-                <li><a href="#about">About us</a></li>
-                <li><a href="#pricing">Pricing</a></li>
-                <li><a href="#features">Features</a></li>
-            </ul>
-            <a href="#" class="btn">
-                <span>Download</span>
-                <i class="bi bi-apple"></i>
-            </a>
-        </nav>
+        <a href="#" style="font-family: 'Fraunces', serif; font-weight: 900; font-size: 24px; color: var(--primary); text-decoration: none;">Crib</a>
+        <a href="#waitlist" class="btn">Join Waitlist</a>
     </header>
 
     <section class="hero">
@@ -454,125 +369,59 @@
                 <h1>Crib</h1>
                 <p>Let apartment hunting be our full time job so you can do yours.</p>
                 <div class="hero-buttons">
-                    <a href="#" class="btn">Get started</a>
-                    <a href="#" class="btn btn-secondary">Learn more</a>
+                    <a href="#waitlist" class="btn">Join the Waitlist</a>
+                    <a href="#about" class="btn btn-secondary">Learn More</a>
                 </div>
             </div>
         </div>
     </section>
 
-    <section class="stats">
-        <h2>In numbers</h2>
-        <div class="stats-grid">
-            <div class="stat-item">
-                <div class="stat-number">250k+</div>
-                <div class="stat-label">Installs</div>
-            </div>
-            <div class="stat-item">
-                <div class="stat-number">400+</div>
-                <div class="stat-label">Hours Saved</div>
-            </div>
-        </div>
-    </section>
-
-    <section class="features" id="features">
-        <div class="section-header">
-            <div class="section-subtitle">Features loved by our clients</div>
-            <h2 class="section-title">Features</h2>
-        </div>
-        <div class="features-grid">
-            <div class="feature-card">
-                <i class="bi bi-boombox-fill feature-icon"></i>
-                <h3>Feature 1</h3>
-                <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quos, voluptates numquam quam expedita mollitia possimus.</p>
-            </div>
-            <div class="feature-card">
-                <i class="bi bi-award-fill feature-icon"></i>
-                <h3>Feature 2</h3>
-                <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quos, voluptates numquam quam expedita mollitia possimus.</p>
-            </div>
-            <div class="feature-card">
-                <i class="bi bi-book-fill feature-icon"></i>
-                <h3>Feature 3</h3>
-                <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quos, voluptates numquam quam expedita mollitia possimus.</p>
-            </div>
-        </div>
-    </section>
-
-    <section class="pricing" id="pricing">
-        <div class="section-header">
-            <h2 class="section-title" style="color: var(--primary);">How it works</h2>
-            <p style="max-width: 700px; margin: 16px auto 0; color: var(--text-gray); font-size: 18px;">
-                Renters post apartment viewing requests. Viewers set their own rates and go see apartments on your behalf.
+    <section class="about" id="about">
+        <div class="about-content">
+            <h2>What is Crib?</h2>
+            <p>
+                Crib is an apartment hunting platform that connects Renters with trusted Viewers 
+                who visit apartments on their behalf. No more wasting time traveling to properties that don't 
+                meet your needs.
+            </p>
+            <p>
+                Whether you're relocating to a new city, have a busy schedule, or just want to save time, 
+                Crib makes finding your perfect apartment easier than ever.
             </p>
         </div>
-        <div class="pricing-grid">
-            <div class="pricing-card">
-                <div style="font-size: 48px; color: var(--primary); margin-bottom: 16px;">
-                    <i class="bi bi-eye"></i>
-                </div>
-                <h3 style="font-size: 32px; margin-bottom: 16px;">For Viewers</h3>
-                <p class="pricing-description">Set your own rates and help renters find their perfect apartment.</p>
-                <ul class="pricing-features">
-                    <li>Set your own hourly rate</li>
-                    <li>Choose which viewings to accept</li>
-                    <li>Flexible schedule</li>
-                    <li>Get paid quickly</li>
-                    <li>Build your reputation</li>
-                </ul>
-                <a href="#" class="btn" style="width: 100%;">Become a Viewer</a>
-                <p style="margin-top: 16px; font-size: 14px; color: var(--text-gray);">
-                    <strong>Typical rates:</strong> $25-$75/hour
+    </section>
+
+    <section class="how-it-works">
+        <h2>How It Works</h2>
+        <div class="roles-grid">
+            <div class="role-card">
+                <div class="role-icon">🏠</div>
+                <h3>For Renters</h3>
+                <p>
+                    Post your apartment requirements and budget. Browse Viewers in your area by their rates 
+                    and reviews. Get detailed video tours and reports without leaving your home.
                 </p>
             </div>
-            <div class="pricing-card featured">
-                <div style="position: absolute; top: -12px; left: 50%; transform: translateX(-50%); background: var(--primary); color: white; padding: 6px 20px; border-radius: 20px; font-size: 14px; font-weight: 700;">
-                    MOST POPULAR
-                </div>
-                <div style="font-size: 48px; color: var(--primary); margin-bottom: 16px;">
-                    <i class="bi bi-house-door"></i>
-                </div>
-                <h3 style="font-size: 32px; margin-bottom: 16px;">For Renters</h3>
-                <p class="pricing-description">Hire a trusted Viewer to see properties for you.</p>
-                <ul class="pricing-features">
-                    <li>Post viewing requests for free</li>
-                    <li>Browse Viewers by rate</li>
-                    <li>Get detailed video tours</li>
-                    <li>Save time on apartment hunting</li>
-                    <li>Secure payment protection</li>
-                </ul>
-                <a href="#" class="btn" style="width: 100%;">Find a Viewer</a>
-                <p style="margin-top: 16px; font-size: 14px; color: var(--text-gray);">
-                    Pay Viewer's rate + small service fee
-                </p>
-            </div>
-            <div class="pricing-card">
-                <div style="font-size: 48px; color: var(--primary); margin-bottom: 16px;">
-                    <i class="bi bi-briefcase"></i>
-                </div>
-                <h3 style="font-size: 32px; margin-bottom: 16px;">For Property Managers</h3>
-                <p class="pricing-description">Fill vacancies faster with verified Viewers.</p>
-                <ul class="pricing-features">
-                    <li>List properties for free</li>
-                    <li>Schedule viewings easily</li>
-                    <li>Work with verified Viewers</li>
-                    <li>Track viewing requests</li>
-                    <li>Premium options available</li>
-                </ul>
-                <a href="#" class="btn" style="width: 100%;">List Property</a>
-                <p style="margin-top: 16px; font-size: 14px; color: var(--text-gray);">
-                    <strong>Free to list.</strong> Premium at $49/mo
+            <div class="role-card">
+                <div class="role-icon">📹</div>
+                <h3>For Viewers</h3>
+                <p>
+                    Set your own rates and work on your schedule. Help renters find their perfect home while 
+                    earning money. Build your reputation through reviews and grow your business.
                 </p>
             </div>
         </div>
     </section>
 
-    <section class="newsletter">
-        <h2>Newsletter Signup</h2>
-        <p>Keep yourself updated</p>
-        <form class="newsletter-form">
-            <input type="email" placeholder="Enter your email" />
-            <button type="submit" class="btn">Signup</button>
+    <section class="waitlist" id="waitlist">
+        <h2>Join the Waitlist</h2>
+        <p>
+            Be among the first to try out Crib when we launch. Sign up now to get early access 
+            and exclusive benefits.
+        </p>
+        <form class="waitlist-form">
+            <input type="email" placeholder="Enter your email address" required />
+            <button type="submit" class="btn">Join Now</button>
         </form>
     </section>
 
@@ -581,15 +430,13 @@
             <div class="footer-brand">
                 <div style="font-family: 'Fraunces', serif; font-weight: 900; font-size: 36px; color: var(--main-text); margin-bottom: 24px;">Crib</div>
                 <div class="footer-address">
-                    2 Lord Edward St,<br />
-                    D02 P634,<br />
-                    United Kingdom
+                    New York City, USA<br />
                 </div>
                 <div class="footer-social-title">Follow us</div>
                 <div class="social-links">
-                    <a href="#"><i class="bi bi-facebook"></i></a>
-                    <a href="#"><i class="bi bi-twitter"></i></a>
-                    <a href="#"><i class="bi bi-instagram"></i></a>
+                    <a href="#" aria-label="Facebook"><i class="bi bi-facebook"></i></a>
+                    <a href="#" aria-label="Twitter"><i class="bi bi-twitter"></i></a>
+                    <a href="#" aria-label="Instagram"><i class="bi bi-instagram"></i></a>
                 </div>
             </div>
             <div class="footer-links">
