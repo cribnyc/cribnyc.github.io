@@ -1,259 +1,337 @@
 <!doctype html>
 <html lang="en">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Crib - Terms & Conditions</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Crib - Terms & Conditions</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.11.3/font/bootstrap-icons.min.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Fraunces:wght@400;500;600;700;800;900&family=Outfit:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.11.3/font/bootstrap-icons.min.css" />
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:wght@400;500;600;700;800;900&family=Outfit:wght@400;500;600;700&display=swap" rel="stylesheet">
+        :root {
+            --primary: #B85C42;
+            --primary-dark: #9a4a35;
+            --primary-light: #c97257;
+            --accent: #7A9E7E;
+            --accent-hover: #8bb18f;
+            --main-text: #FFF5ED;
+            --text-dark: #B85C42;
+            --text-gray: #6b7280;
+            --bg-light: #FFF5ED;
+            --white: #ffffff;
+        }
 
-<style>
-* { margin:0; padding:0; box-sizing:border-box; }
+        body {
+            font-family: 'Outfit', sans-serif;
+            color: #333;
+            background: var(--bg-light);
+            line-height: 1.8;
+        }
 
-:root {
-    --primary: #B85C42;
-    --primary-dark: #9a4a35;
-    --accent: #7A9E7E;
-    --bg-light: #FFF5ED;
-    --white: #ffffff;
-    --text-gray: #6b7280;
-}
+        h1, h2, h3, h4 {
+            font-family: 'Fraunces', serif;
+            font-weight: 700;
+        }
 
-body {
-    font-family: 'Outfit', sans-serif;
-    background: var(--bg-light);
-    line-height: 1.8;
-}
+        /* Header */
+        header {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            height: 70px;
+            background: rgba(255, 245, 237, 0.95);
+            backdrop-filter: blur(10px);
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+            z-index: 1000;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 5%;
+        }
 
-h1,h2,h3 { font-family:'Fraunces', serif; }
+        .logo {
+            font-family: 'Fraunces', serif;
+            font-weight: 900;
+            font-size: 28px;
+            color: var(--primary);
+            text-decoration: none;
+        }
 
-header {
-    position: fixed;
-    top: 0;
-    width: 100%;
-    height: 70px;
-    background: rgba(255,245,237,0.95);
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
-    padding:0 5%;
-}
+        .back-link {
+            color: var(--primary);
+            text-decoration: none;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            transition: color 0.3s;
+        }
 
-.logo {
-    font-family:'Fraunces', serif;
-    font-weight:900;
-    font-size:28px;
-    color:var(--primary);
-}
+        .back-link:hover {
+            color: var(--primary-dark);
+        }
 
-.back-link {
-    color:var(--primary);
-    text-decoration:none;
-    display:flex;
-    gap:8px;
-    align-items:center;
-}
+        /* Main Content */
+        .terms-container {
+            max-width: 900px;
+            margin: 120px auto 60px;
+            padding: 0 5%;
+        }
 
-.terms-container {
-    max-width:900px;
-    margin:120px auto 60px;
-    padding:0 5%;
-}
+        .terms-header {
+            text-align: center;
+            margin-bottom: 48px;
+        }
 
-.terms-header {
-    text-align:center;
-    margin-bottom:48px;
-}
+        .terms-header h1 {
+            font-size: 48px;
+            color: var(--primary);
+            margin-bottom: 16px;
+        }
 
-.terms-header h1 {
-    font-size:48px;
-    color:var(--primary);
-}
+        .last-updated {
+            color: var(--text-gray);
+            font-size: 16px;
+        }
 
-.last-updated {
-    color:var(--text-gray);
-}
+        .terms-content {
+            background: var(--white);
+            padding: 48px;
+            border-radius: 16px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+        }
 
-.terms-content {
-    background:var(--white);
-    padding:48px;
-    border-radius:16px;
-}
+        .terms-section {
+            margin-bottom: 40px;
+        }
 
-.terms-section {
-    margin-bottom:40px;
-}
+        .terms-section h2 {
+            font-size: 28px;
+            color: var(--primary);
+            margin-bottom: 16px;
+        }
 
-.terms-section h2 {
-    font-size:28px;
-    color:var(--primary);
-    margin-bottom:12px;
-}
+        .terms-section h3 {
+            font-size: 22px;
+            color: var(--text-dark);
+            margin-bottom: 12px;
+            margin-top: 24px;
+        }
 
-.terms-section h3 {
-    font-size:20px;
-    margin-top:20px;
-    margin-bottom:10px;
-}
+        .terms-section p {
+            margin-bottom: 16px;
+            line-height: 1.8;
+            color: #4a4a4a;
+        }
 
-.terms-section p {
-    margin-bottom:16px;
-    color:#444;
-}
+        .terms-section ul, .terms-section ol {
+            margin-left: 24px;
+            margin-bottom: 16px;
+        }
 
-ul { margin-left:24px; margin-bottom:16px; }
-li { margin-bottom:10px; }
+        .terms-section li {
+            margin-bottom: 12px;
+            color: #4a4a4a;
+        }
 
-footer {
-    padding:60px 5% 40px;
-    background:var(--accent);
-    color:white;
-    text-align:center;
-}
-</style>
+        .highlight {
+            background: #fef3c7;
+            padding: 2px 6px;
+            border-radius: 4px;
+        }
+
+        /* Footer */
+        footer {
+            padding: 60px 5% 40px;
+            background: var(--accent);
+            color: var(--white);
+            text-align: center;
+        }
+
+        footer a {
+            color: var(--primary);
+            text-decoration: none;
+        }
+
+        footer a:hover {
+            text-decoration: underline;
+        }
+
+        @media (max-width: 768px) {
+            .terms-header h1 {
+                font-size: 36px;
+            }
+
+            .terms-content {
+                padding: 32px 24px;
+            }
+
+            .terms-section h2 {
+                font-size: 24px;
+            }
+        }
+    </style>
 </head>
-
 <body>
+    <header>
+        <a href="index.html" class="logo">Crib</a>
+        <a href="index.html" class="back-link">
+            <i class="bi bi-arrow-left"></i>
+            <span>Back to Home</span>
+        </a>
+    </header>
 
-<header>
-    <div class="logo">Crib</div>
-    <a href="#" class="back-link">
-        <i class="bi bi-arrow-left"></i>
-        Back to Home
-    </a>
-</header>
+    <div class="terms-container">
+        <div class="terms-header">
+            <h1>Terms & Conditions</h1>
+            <p class="last-updated">Last updated: January 12, 2026</p>
+        </div>
 
-<div class="terms-container">
+        <div class="terms-content">
+            <div class="terms-section">
+                <h2>1. Agreement to Terms</h2>
+                <p>
+                    Crib NYC ("Crib," "we," "us," or "our") operates the Crib website, mobile application, and 
+                    related services (the "Services"). By accessing or using the Services, you agree to these Terms of Service. 
+                    If you do not agree, you must stop using the Services immediately. We may update these Terms from time to time, 
+                    and continued use of the Services means you accept any changes.
+                </p>
+                <p>
+                    The Services are intended for users who are at least 13 years old. If you are under 18, you must have permission 
+                    from a parent or legal guardian. You are responsible for complying with all applicable laws where you access the Services.
+                </p>
+            </div>
 
-<div class="terms-header">
-    <h1>Terms & Conditions</h1>
-    <p class="last-updated">Last updated: January 12, 2026</p>
-</div>
+            <div class="terms-section">
+                <h2>2. Use of Service</h2>
+                <p>
+                    The Services are provided only for lawful purposes and personal, non-commercial use unless we expressly approve otherwise. 
+                    The Services are not designed to comply with industry-specific regulations such as HIPAA or financial compliance laws 
+                    and should not be used where such compliance is required.
+                </p>
+                <p>
+                    We reserve the right to monitor, manage, suspend, or terminate access to the Services at any time to protect our platform, 
+                    users, and legal rights.
+                </p>
+            </div>
 
-<div class="terms-content">
+            <div class="terms-section">
+                <h2>3. Accounts, Payments, and Sales</h2>
+                <p>
+                    Some features may require you to create an account. You are responsible for maintaining the confidentiality of your login 
+                    credentials and all activity under your account. We may change or remove usernames we consider inappropriate.
+                </p>
+                <p>
+                    If you make purchases through the Services, you agree to provide accurate billing information and authorize us to charge 
+                    your selected payment method. Prices may change at any time, and we may refuse or cancel orders at our discretion. 
+                    All sales are final and non-refundable.
+                </p>
+            </div>
 
-<div class="terms-section">
-<p><strong>CRIB NYC Terms of Service Tour Requestor Agreement Last Updated: [DATE] | Version: Draft with Revisions</strong></p>
+            <div class="terms-section">
+                <h2>4. Intellectual Property and Content</h2>
+                <p>
+                    All content, software, branding, and materials available through the Services are owned by or licensed to Crib and are 
+                    protected by intellectual property laws. You are granted a limited, revocable, non-transferable license to access and 
+                    use the Services for personal, non-commercial purposes only.
+                </p>
+                <p>
+                    Any feedback, suggestions, or ideas you submit to us may be used by Crib for any purpose without compensation. 
+                    If you submit content where permitted, you retain ownership but grant Crib the right to use, store, and display it in 
+                    connection with the Services.
+                </p>
+            </div>
 
-<p><strong>REVISION NOTICE</strong> This document contains the original Terms of Service with four new sections and four revised sections added based on legal gap analysis. All sections below are presented in unified form for readability. This is a draft for attorney review. This document does not constitute legal advice.</p>
-</div>
+            <div class="terms-section">
+                <h2>5. Prohibited Conduct</h2>
+                <p>
+                    You agree not to misuse the Services. Prohibited activities include, but are not limited to, hacking, scraping data, 
+                    bypassing security features, using bots or automation, uploading malware, impersonating others, harassing users, 
+                    reselling access, advertising without permission, or using the Services to compete with Crib. Violations may result in 
+                    immediate suspension or termination.
+                </p>
+            </div>
 
-<div class="terms-section">
-<h2>1. Agreement to Terms</h2>
-<p>Crib NYC (“Crib,” “we,” “us,” or “our”) operates the Crib website, mobile application, and related services (the “Services”). By accessing or using the Services, you agree to these Terms of Service. If you do not agree, you must stop using the Services immediately. We may update these Terms from time to time, and continued use of the Services means you accept any changes.</p>
+            <div class="terms-section">
+                <h2>6. Third-Party Services</h2>
+                <p>
+                    The Services may contain links to third-party websites or content. We do not control or endorse third-party services 
+                    and are not responsible for their content, policies, or practices. You access third-party services at your own risk.
+                </p>
+            </div>
 
-<p>The Services are intended for users who are at least 13 years old. If you are under 18, you must have permission from a parent or legal guardian. You are responsible for complying with all applicable laws where you access the Services.</p>
-</div>
+            <div class="terms-section">
+                <h2>7. Privacy and Data</h2>
+                <p>
+                    Your use of the Services is subject to our Privacy Policy. By using the Services, you consent to the collection and 
+                    processing of your information in the United States. We do not knowingly collect personal information from children 
+                    under 13.
+                </p>
+            </div>
 
-<div class="terms-section">
-<h2>2. Use of Service</h2>
-<p>The Services are provided only for lawful purposes and personal, non-commercial use unless we expressly approve otherwise. The Services are not designed to comply with industry-specific regulations such as HIPAA or financial compliance laws and should not be used where such compliance is required. We reserve the right to monitor, manage, suspend, or terminate access to the Services at any time to protect our platform, users, and legal rights.</p>
+            <div class="terms-section">
+                <h2>8. Disclaimers and Limitation of Liability</h2>
+                <p>
+                    The Services are provided "as is" and "as available," without warranties of any kind. We do not guarantee accuracy, 
+                    availability, or uninterrupted access. To the fullest extent permitted by law, Crib is not liable for indirect, 
+                    incidental, or consequential damages. Our total liability, if any, is limited to the amount you paid us, if any.
+                </p>
+            </div>
 
-<h3>2.1 Nature of Service; Non-Brokerage Disclaimer</h3>
-<p>Crib is a technology platform that connects individuals seeking apartment tours (“Tour Requestors”) with independent third-party individuals who perform on-site apartment tours on their behalf (“Viewers”). Crib’s role is limited to operating the marketplace and facilitating connections between Tour Requestors and Viewers.</p>
+            <div class="terms-section">
+                <h2>9. Indemnification</h2>
+                <p>
+                    You agree to indemnify and hold Crib harmless from any claims, damages, or expenses arising out of your use of the 
+                    Services, your content, or your violation of these Terms.
+                </p>
+            </div>
 
-<p><strong>IMPORTANT:</strong> Crib is not a licensed real estate broker, real estate salesperson, or real estate agent under Article 12-A of the New York Real Property Law or any other applicable law. Crib does not list, sell, lease, or negotiate the lease or sale of any real property. No part of the Services constitutes real estate brokerage, advisory services, or representation.</p>
+            <div class="terms-section">
+                <h2>10. Termination and Modifications</h2>
+                <p>
+                    We may modify, suspend, or discontinue the Services at any time without notice. We may also terminate or suspend 
+                    your access for any reason, including violation of these Terms. These Terms remain in effect for as long as you use the Services.
+                </p>
+            </div>
 
-<h3>2.2 Viewer Independence</h3>
-<ul>
-<li>Crib is not responsible for the conduct, acts, or omissions of any Viewer</li>
-<li>Crib does not guarantee any Viewer credentials</li>
-<li>All arrangements are between users</li>
-<li>No off-platform engagement allowed</li>
-</ul>
-</div>
+            <div class="terms-section">
+                <h2>11. Governing Law and Disputes</h2>
+                <p>
+                    These Terms are governed by the laws of the State of New York. Most disputes will be resolved through binding 
+                    arbitration rather than court, and class actions are not permitted. Certain disputes, such as intellectual property 
+                    claims or requests for injunctive relief, may be brought in court.
+                </p>
+            </div>
 
-<div class="terms-section">
-<h2>3. Accounts, Payments, and Sales</h2>
-<p>Some features may require you to create an account. You are responsible for maintaining the confidentiality of your login credentials and all activity under your account. We may change or remove usernames we consider inappropriate.</p>
+            <div class="terms-section">
+                <h2>12. Electronic Communications</h2>
+                <p>
+                   You consent to receive communications electronically and agree that electronic notices, records, and signatures are 
+                    legally binding.
+                </p>
+            </div>
 
-<p>If you make purchases through the Services, you agree to provide accurate billing information and authorize us to charge your selected payment method. Prices may change at any time, and we may refuse or cancel orders at our discretion.</p>
+            <div class="terms-section">
+                <h2>13. Contact Information</h2>
+                <p>
+                    If you have any questions about these Terms, please contact us at:
+                </p>
+                <p>
+                    <strong>Crib</strong><br>
+                    New York City, USA<br>
+                    Email: teamcribnyc@gmail.com
+                </p>
+            </div>
+        </div>
+    </div>
 
-<h3>Cancellations and Refunds</h3>
-<ul>
-<li>Cancellations made more than 24 hours before a scheduled tour will receive a full refund</li>
-<li>Cancellations within 24 hours are non-refundable except at Crib’s discretion</li>
-<li>Viewer failure → refund or reschedule</li>
-<li>Disputes must be submitted within 48 hours</li>
-<li>No refunds for dissatisfaction with apartment condition</li>
-</ul>
-</div>
-
-<div class="terms-section">
-<h2>4. Intellectual Property and Content</h2>
-<p>All content, software, branding, and materials available through the Services are owned by or licensed to Crib and are protected by intellectual property laws.</p>
-</div>
-
-<div class="terms-section">
-<h2>5. Prohibited Conduct</h2>
-<ul>
-<li>Hacking, scraping, bots, impersonation, harassment</li>
-<li>Reselling access or unauthorized advertising</li>
-<li>Using Services in violation of Fair Housing laws</li>
-</ul>
-</div>
-
-<div class="terms-section">
-<h2>6. Third-Party Services</h2>
-<p>The Services may contain links to third-party websites or content. We do not control or endorse third-party services and are not responsible for them.</p>
-</div>
-
-<div class="terms-section">
-<h2>7. Privacy, Data, and Tour Recordings</h2>
-<p>Your use of the Services is subject to our Privacy Policy.</p>
-
-<h3>Tour Recording Policy</h3>
-<ul>
-<li>Recordings are for Tour Requestor benefit and quality assurance</li>
-<li>Retention period: [X] days</li>
-<li>Limited access to recordings</li>
-<li>No sharing without consent</li>
-</ul>
-
-<h3>7.1 Listing Accuracy Disclaimer</h3>
-<p>Crib does not verify or guarantee listing accuracy. Users must conduct independent due diligence.</p>
-</div>
-
-<div class="terms-section">
-<h2>8. Disclaimers and Limitation of Liability</h2>
-<p>The Services are provided “as is” and “as available,” without warranties of any kind. Liability is limited to the amount paid for the specific service.</p>
-</div>
-
-<div class="terms-section">
-<h2>9. Indemnification</h2>
-<p>You agree to indemnify and hold Crib harmless from any claims arising from your use of the Services.</p>
-
-<h3>9.1 Fair Housing Compliance</h3>
-<p>Crib complies with all applicable fair housing laws. Discriminatory use of the Services is strictly prohibited.</p>
-</div>
-
-<div class="terms-section">
-<h2>10. Termination and Modifications</h2>
-<p>We may modify, suspend, or terminate the Services at any time.</p>
-</div>
-
-<div class="terms-section">
-<h2>11. Governing Law and Disputes</h2>
-<p>These Terms are governed by the laws of the State of New York. Disputes are resolved through arbitration.</p>
-</div>
-
-<div class="terms-section">
-<h2>12. Electronic Communications</h2>
-<p>You consent to receive communications electronically.</p>
-</div>
-
-<div class="terms-section">
-<h2>13. Contact Information</h2>
-<p>Crib New York City, USA<br>Email: teamcribnyc@gmail.com</p>
-</div>
-
-</div>
-</div>
-
-<footer>
-<p>&copy; 2026 Crib. All rights reserved.</p>
-</footer>
-
+    <footer>
+        <p>&copy; 2026 Crib. All rights reserved. | <a href="index.html">Home</a>
+    </footer>
 </body>
 </html>
